@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Tools Directory 2026 — Karolis Balsiukevicius</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --white: #f5f4f0;
+    --accent: #c8f135;
+    --accent2: #ff4d1c;
+    --mid: #1a1a1a;
+    --border: #2a2a2a;
+    --text-muted: #666;
+    --card-bg: #111;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* ── COVER PAGE ── */
+  .cover {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 60px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(200,241,53,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cover::after {
+    content: '';
+    position: absolute;
+    bottom: -100px; left: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(255,77,28,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cover-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .cover-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    text-transform: uppercase;
+    border: 1px solid var(--accent);
+    padding: 6px 14px;
+    border-radius: 2px;
+  }
+
+  .cover-year {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+  }
+
+  .cover-title-block {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 0 60px;
+  }
+
+  .cover-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(72px, 10vw, 140px);
+    line-height: 0.9;
+    letter-spacing: 0.02em;
+    color: var(--white);
+  }
+
+  .cover-title span {
+    color: var(--accent);
+  }
+
+  .cover-subtitle {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--text-muted);
+    margin-top: 24px;
+    max-width: 480px;
+    line-height: 1.6;
+  }
+
+  .cover-stats {
+    display: flex;
+    gap: 48px;
+    margin-top: 48px;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px;
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-family: 'DM Mono', monospace;
+  }
+
+  .cover-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .cover-author {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  .cover-author strong {
+    color: var(--white);
+    display: block;
+    font-size: 15px;
+    margin-bottom: 2px;
+  }
+
+  .cover-cta {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--accent2);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  /* ── CATEGORY INDEX (cover page second half) ── */
+  .index-section {
+    padding: 80px 60px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .index-heading {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 48px;
+  }
+
+  .category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2px;
+  }
+
+  .category-index-card {
+    background: var(--mid);
+    padding: 28px 32px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    border: 1px solid var(--border);
+    text-decoration: none;
+    display: block;
+  }
+
+  .category-index-card:hover {
+    background: #1e1e1e;
+    transform: translateY(-2px);
+    border-color: var(--accent);
+  }
+
+  .cat-index-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+
+  .cat-index-count {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+  }
+
+  .cat-index-arrow {
+    float: right;
+    color: var(--accent);
+    font-size: 18px;
+    margin-top: -4px;
+  }
+
+  /* ── TOOL PAGES ── */
+  .tools-section {
+    padding: 0;
+  }
+
+  .category-block {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .category-header {
+    padding: 60px 60px 40px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    background: var(--black);
+    z-index: 10;
+  }
+
+  .category-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(36px, 5vw, 64px);
+    letter-spacing: 0.04em;
+    line-height: 1;
+  }
+
+  .category-count-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    padding-bottom: 8px;
+  }
+
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1px;
+    background: var(--border);
+  }
+
+  .tool-card {
+    background: var(--black);
+    padding: 32px 28px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: background 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .tool-card:hover {
+    background: var(--mid);
+  }
+
+  .tool-card:hover .tool-arrow {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .tool-logo-wrap {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: #1e1e1e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+
+  .tool-logo-wrap img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
+
+  .tool-logo-wrap .fallback-letter {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    color: var(--accent);
+  }
+
+  .tool-info {
+    flex: 1;
+  }
+
+  .tool-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+
+  .tool-url {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .tool-arrow {
+    position: absolute;
+    top: 28px;
+    right: 24px;
+    font-size: 16px;
+    color: var(--accent);
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: all 0.2s;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    padding: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border);
+  }
+
+  .footer-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+  }
+
+  .footer-note {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+  }
+
+  /* ── PRINT / PAGE BREAK ── */
+  @media print {
+    .cover { page-break-after: always; }
+    .category-header { position: static; }
+  }
+
+  /* ── SCROLL FADE IN ── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════
+     COVER PAGE
+══════════════════════════════════ -->
+<section class="cover">
+  <div class="cover-top">
+    <div class="cover-tag">AI for the Built Environment</div>
+    <div class="cover-year">Edition 2026</div>
+  </div>
+
+  <div class="cover-title-block">
+    <div class="cover-title">AI<br><span>TOOLS</span><br>DIRECTORY</div>
+    <div class="cover-subtitle">Every AI tool worth knowing — organised by category, linked directly, ready to use. No fluff, no ranking, no opinion.</div>
+    <div class="cover-stats">
+      <div class="stat">
+        <div class="stat-num" id="total-tools">76</div>
+        <div class="stat-label">Tools</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">14</div>
+        <div class="stat-label">Categories</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">1</div>
+        <div class="stat-label">Page</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cover-bottom">
+    <div class="cover-author">
+      <strong>Karolis Balsiukevicius</strong>
+      AI Content Strategy &amp; Ghostwriting for Hotels, Construction &amp; Design
+    </div>
+    <div class="cover-cta">linkedin.com/in/karolis</div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     CATEGORY INDEX
+══════════════════════════════════ -->
+<section class="index-section">
+  <div class="index-heading">— Categories</div>
+  <div class="category-grid" id="category-index"></div>
+</section>
+
+<!-- ══════════════════════════════════
+     TOOLS SECTIONS
+══════════════════════════════════ -->
+<div class="tools-section" id="tools-container"></div>
+
+<!-- ══════════════════════════════════
+     FOOTER
+══════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-name">Karolis Balsiukevicius</div>
+  <div class="footer-note">AI Tools Directory 2026 · All links verified at time of publication</div>
+</footer>
+
+<script>
+const categories = [
+  {
+    name: "AI Chatbots",
+    tools: [
+      { name: "Claude", url: "https://claude.ai" },
+      { name: "ChatGPT", url: "https://chat.openai.com" },
+      { name: "Perplexity", url: "https://www.perplexity.ai" },
+      { name: "Gemini", url: "https://gemini.google.com" },
+      { name: "DeepSeek", url: "https://chat.deepseek.com" },
+      { name: "MS Copilot", url: "https://copilot.microsoft.com" },
+      { name: "Grok", url: "https://grok.com" },
+      { name: "Meta AI", url: "https://ai.meta.com" },
+    ]
+  },
+  {
+    name: "AI Presentation",
+    tools: [
+      { name: "Gamma", url: "https://gamma.app" },
+      { name: "Tome", url: "https://tome.app" },
+      { name: "Beautiful.AI", url: "https://www.beautiful.ai" },
+      { name: "Slidesgo", url: "https://slidesgo.com" },
+      { name: "Pitch", url: "https://pitch.com" },
+      { name: "PopAI", url: "https://www.popai.pro" },
+      { name: "Presentation.AI", url: "https://www.presentation.ai" },
+      { name: "Plus", url: "https://www.plusdocs.com" },
+    ]
+  },
+  {
+    name: "AI Writing Generation",
+    tools: [
+      { name: "Jasper", url: "https://www.jasper.ai" },
+      { name: "Copy.ai", url: "https://www.copy.ai" },
+      { name: "Writesonic", url: "https://writesonic.com" },
+      { name: "Grammarly", url: "https://www.grammarly.com" },
+      { name: "Quillbot", url: "https://quillbot.com" },
+      { name: "Rytr", url: "https://rytr.me" },
+      { name: "Sudowrite", url: "https://www.sudowrite.com" },
+      { name: "JotBot", url: "https://www.jotbot.ai" },
+      { name: "Quarkle", url: "https://quarkle.ai" },
+    ]
+  },
+  {
+    name: "AI Image Generation",
+    tools: [
+      { name: "Midjourney", url: "https://www.midjourney.com" },
+      { name: "DALL-E", url: "https://openai.com/dall-e-3" },
+      { name: "Adobe Firefly", url: "https://firefly.adobe.com" },
+      { name: "Stable Diffusion", url: "https://stability.ai" },
+      { name: "Ideogram", url: "https://ideogram.ai" },
+      { name: "FLUX.1", url: "https://blackforestlabs.ai" },
+      { name: "Recraft", url: "https://www.recraft.ai" },
+    ]
+  },
+  {
+    name: "AI Video Generation",
+    tools: [
+      { name: "Runway", url: "https://runwayml.com" },
+      { name: "Sora", url: "https://sora.com" },
+      { name: "Pika AI", url: "https://pika.art" },
+      { name: "Luma AI", url: "https://lumalabs.ai" },
+      { name: "Descript", url: "https://www.descript.com" },
+      { name: "Invideo AI", url: "https://invideo.io" },
+      { name: "Kling", url: "https://klingai.com" },
+      { name: "Krea AI", url: "https://www.krea.ai" },
+      { name: "LTX Studio", url: "https://ltx.studio" },
+      { name: "Haiper AI", url: "https://haiper.ai" },
+    ]
+  },
+  {
+    name: "AI Workflow Automation",
+    tools: [
+      { name: "n8n", url: "https://n8n.io" },
+      { name: "Zapier", url: "https://zapier.com" },
+      { name: "Make", url: "https://www.make.com" },
+      { name: "Monday.com", url: "https://monday.com" },
+      { name: "Integrately", url: "https://integrately.com" },
+      { name: "Wrike", url: "https://www.wrike.com" },
+    ]
+  },
+  {
+    name: "AI Graphic Design",
+    tools: [
+      { name: "Canva", url: "https://www.canva.com" },
+      { name: "Microsoft Designer", url: "https://designer.microsoft.com" },
+      { name: "Framer", url: "https://www.framer.com" },
+      { name: "Uizard", url: "https://uizard.io" },
+      { name: "AutoDraw", url: "https://www.autodraw.com" },
+      { name: "Design.com", url: "https://www.design.com" },
+    ]
+  },
+  {
+    name: "AI Coding Assistance",
+    tools: [
+      { name: "Cursor", url: "https://www.cursor.com" },
+      { name: "GitHub Copilot", url: "https://github.com/features/copilot" },
+      { name: "Replit", url: "https://replit.com" },
+      { name: "Tabnine", url: "https://www.tabnine.com" },
+      { name: "Qodo", url: "https://www.qodo.ai" },
+      { name: "Askcodi", url: "https://www.askcodi.com" },
+      { name: "Codiga", url: "https://www.codiga.io" },
+    ]
+  },
+  {
+    name: "AI Email Assistance",
+    tools: [
+      { name: "Superhuman", url: "https://superhuman.com" },
+      { name: "Shortwave", url: "https://www.shortwave.com" },
+      { name: "Mailmaestro", url: "https://www.mailmaestro.com" },
+      { name: "Friday", url: "https://www.friday.app" },
+      { name: "Clippit.AI", url: "https://clippit.ai" },
+    ]
+  },
+  {
+    name: "AI Scheduling",
+    tools: [
+      { name: "Reclaim AI", url: "https://reclaim.ai" },
+      { name: "Motion", url: "https://www.usemotion.com" },
+      { name: "Calendly", url: "https://calendly.com" },
+      { name: "Clockwise", url: "https://www.getclockwise.com" },
+      { name: "Taskade", url: "https://www.taskade.com" },
+      { name: "Trevor AI", url: "https://trevorai.com" },
+    ]
+  },
+  {
+    name: "AI Meeting Notes",
+    tools: [
+      { name: "Fathom", url: "https://fathom.video" },
+      { name: "Fireflies", url: "https://fireflies.ai" },
+      { name: "Otter", url: "https://otter.ai" },
+      { name: "Krisp", url: "https://krisp.ai" },
+      { name: "Avoma", url: "https://www.avoma.com" },
+      { name: "Fellow.app", url: "https://fellow.app" },
+      { name: "Equal Time", url: "https://www.equaltime.io" },
+    ]
+  },
+  {
+    name: "AI Spreadsheet",
+    tools: [
+      { name: "Formula Bot", url: "https://formulabot.com" },
+      { name: "SheetAI", url: "https://sheetai.app" },
+      { name: "Rows AI", url: "https://rows.com" },
+      { name: "Gigasheet", url: "https://www.gigasheet.com" },
+      { name: "Bricks", url: "https://www.bricks.so" },
+    ]
+  },
+  {
+    name: "AI Knowledge Management",
+    tools: [
+      { name: "Notion", url: "https://www.notion.so" },
+      { name: "Mem", url: "https://get.mem.ai" },
+      { name: "Tettra", url: "https://tettra.com" },
+    ]
+  },
+  {
+    name: "AI Data Visualization",
+    tools: [
+      { name: "Julius", url: "https://julius.ai" },
+      { name: "Flourish", url: "https://flourish.studio" },
+      { name: "Visme", url: "https://www.visme.co" },
+      { name: "Deckpilot", url: "https://deckpilot.io" },
+      { name: "Zing Data", url: "https://getzingdata.com" },
+    ]
+  },
+];
+
+// Shuffle tools within each category
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function getDomain(url) {
+  try { return new URL(url).hostname; } catch { return ''; }
+}
+
+function getFaviconUrl(url) {
+  const domain = getDomain(url);
+  return `https://www.google.com/s2/favicons?domain=${domain}&sz=64`;
+}
+
+function slugify(name) {
+  return name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+}
+
+const totalTools = categories.reduce((s, c) => s + c.tools.length, 0);
+document.getElementById('total-tools').textContent = totalTools;
+
+// Build category index
+const indexEl = document.getElementById('category-index');
+categories.forEach(cat => {
+  const slug = slugify(cat.name);
+  const card = document.createElement('a');
+  card.className = 'category-index-card fade-in';
+  card.href = `#${slug}`;
+  card.innerHTML = `
+    <span class="cat-index-arrow">↓</span>
+    <div class="cat-index-name">${cat.name}</div>
+    <div class="cat-index-count">${cat.tools.length} tools</div>
+  `;
+  indexEl.appendChild(card);
+});
+
+// Build tool sections
+const container = document.getElementById('tools-container');
+categories.forEach(cat => {
+  const slug = slugify(cat.name);
+  const shuffledTools = shuffle(cat.tools);
+
+  const block = document.createElement('div');
+  block.className = 'category-block';
+  block.id = slug;
+
+  const header = document.createElement('div');
+  header.className = 'category-header';
+  header.innerHTML = `
+    <div class="category-name">${cat.name}</div>
+    <div class="category-count-badge">${cat.tools.length} tools</div>
+  `;
+  block.appendChild(header);
+
+  const grid = document.createElement('div');
+  grid.className = 'tools-grid';
+
+  shuffledTools.forEach(tool => {
+    const card = document.createElement('a');
+    card.className = 'tool-card fade-in';
+    card.href = tool.url;
+    card.target = '_blank';
+    card.rel = 'noopener noreferrer';
+
+    const faviconUrl = getFaviconUrl(tool.url);
+    const letter = tool.name.charAt(0).toUpperCase();
+    const displayDomain = getDomain(tool.url).replace('www.', '');
+
+    card.innerHTML = `
+      <div class="tool-arrow">↗</div>
+      <div class="tool-logo-wrap">
+        <img 
+          src="${faviconUrl}" 
+          alt="${tool.name} logo"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+        >
+        <span class="fallback-letter" style="display:none;">${letter}</span>
+      </div>
+      <div class="tool-info">
+        <div class="tool-name">${tool.name}</div>
+        <div class="tool-url">${displayDomain}</div>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+
+  block.appendChild(grid);
+  container.appendChild(block);
+});
+
+// Scroll fade-in observer
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.05 });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
